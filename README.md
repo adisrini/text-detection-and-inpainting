@@ -1,1 +1,1 @@
-# gone-text
+# Text Detection and Inpainting
