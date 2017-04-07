@@ -53,7 +53,8 @@ function inpainting_mumford_shah(imagefilename,maskfilename,maxiter,tol,param)
 % solutions of the Euler-Lagrange equations for u and \chi.
 
 %% ----------------- CREATE A log FILE WHERE TO STORE RESULTS IN txt FORMAT
-logfilename = 'log_mumford_shah.log';
+filename = imagefilename(11:(size(imagefilename, 2)-4));
+logfilename = strcat('../log/', filename, '.log');
 if exist(logfilename,'file')
     delete(logfilename);
 end
@@ -180,9 +181,9 @@ u_end   = reshape(u,[iminfo.Height,iminfo.Width,colors]);
 chi_end = mat2gray(reshape(chi,[iminfo.Height,iminfo.Width,colors]));
 
 %% ---------------------------------------------------- WRITE IMAGE OUTPUTS
-imwrite(u0,'masked_mumford_shah.png')
-imwrite(u_end,'output_mumford_shah.png')
-imwrite(chi_end,'levels_mumford_shah.png')
+imwrite(u0, strcat('../outputs/masked_', filename, '_mumford_shah.png'))
+imwrite(u_end, strcat('../outputs/output_', filename, '_mumford_shah.png'))
+imwrite(chi_end, strcat('../outputs/levels_', filename, '_mumford_shah.png'))
 
 return
 
