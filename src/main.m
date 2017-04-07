@@ -1,6 +1,6 @@
 %% Load image and mask
-image = '../inputs/turtle.png';
-mask  = '../masks/turtle.png';
+image = '../inputs/dunk.png';
+mask  = '../masks/dunk.png';
 
 %% Set parameters for inpainting
 maxiter       = 20;
