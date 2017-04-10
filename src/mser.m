@@ -1,6 +1,6 @@
 %Text recognition and creating the mask mser
 
-i = imread('test.jpg');
+i = imread('../inputs/face.jpg');
 I = imadjust(rgb2gray(i),[0.0; .7],[])
 %figure 
 %imshow(I);
