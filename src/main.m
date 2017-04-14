@@ -1,13 +1,13 @@
 %% Load image and mask
-image = '../inputs/turtle2.png';
-mask  = '../masks/turtle2.jpg';
+image = '../inputs/swan.jpg';
+mask  = '../masks/swan.jpg';
 
 %% Set parameters for inpainting
-maxiter       = 20;
-tol           = 1e-14;
-param.lambda  = 10^9;   % weight on data fidelity (should usually be large).
-param.alpha   = 1;      % regularisation parameters \alpha.
-param.gamma   = 0.5;    % regularisation parameters \gamma.
-param.epsilon = 0.05;   % accuracy of Ambrosio-Tortorelli approximation of the edge set.
+tol           = 1e-5;
+maxiter       = 50;
+dt            = 0.1;
+param.M       = 40; % number of steps of the inpainting procedure;
+param.N       = 2;  % number of steps of the anisotropic diffusion;
+param.eps     = 1e-10;
 
-inpainting_mumford_shah(image, mask, maxiter, tol, param);
+inpainting_transport(image, mask, maxiter, tol, dt, param);

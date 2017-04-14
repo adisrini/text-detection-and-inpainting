@@ -1,11 +1,10 @@
 %edges
 
-I = rgb2gray(imread('../inputs/turtle2.png'));
-BW1 = edge(I, 'Prewitt');
-SE = strel('square',3);
+I = rgb2gray(imread('../inputs/mountain.jpg'));
+h = fspecial('average', [3, 5]);
+I2 = filter2(h, I);
+BW1 = edge(I2, 'Prewitt');
+SE = strel('square', 1);
 BW2 = imdilate(BW1, SE);
-% figure;
-% imshow(BW2);
-% figure;
-% imshowpair(BW1, BW2, 'montage');
-imwrite(BW2, '../masks/turtle2.jpg');
+figure;
+imshowpair(BW1, edge(I, 'Prewitt'), 'montage');
