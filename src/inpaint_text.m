@@ -1,9 +1,13 @@
-function inpaint_text( filename )
+function inpaint_text( filename , text_detection_method, dilation )
 
 %% Load image and mask
 image = strcat('../inputs/', filename);
 
-detect_edges(filename);
+if strcmp(text_detection_method, 'edge')
+    detect_edges(filename, dilation);
+elseif strcmp(text_detection_method, 'otsu')
+    otsu_threshold(filename, dilation);
+end
 
 mask = strcat('../masks/', filename);
 
