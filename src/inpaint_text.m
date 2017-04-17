@@ -1,4 +1,4 @@
-function inpaint_text( filename , text_detection_method, dilation )
+function inpaint_text( filename , text_detection_method, dilation, R, G, B )
 
 %% Load image and mask
 image = strcat('../inputs/', filename);
@@ -8,8 +8,9 @@ if strcmp(text_detection_method, 'edge')
 elseif strcmp(text_detection_method, 'otsu')
     otsu_threshold(filename, dilation);
 elseif strcmp(text_detection_method, 'color-select')
-    
-    color_select_mask(filename,255,123,0);
+    color_select_mask(filename,R,G,B);
+elseif strcmp(text_detection_method, 'user-generated')
+    % do nothing, use mask alread in ../masks/
 end
 
 I = imread(image);
