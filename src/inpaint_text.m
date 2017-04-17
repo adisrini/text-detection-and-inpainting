@@ -1,15 +1,21 @@
-function inpaint_text( filename )
+function inpaint_text( filename , text_detection_method, dilation )
 
 %% Load image and mask
 image = strcat('../inputs/', filename);
-color_select_mask(filename, 255,123,0);
+
+if strcmp(text_detection_method, 'edge')
+    detect_edges(filename, dilation);
+elseif strcmp(text_detection_method, 'otsu')
+    otsu_threshold(filename, dilation);
+elseif strcmp(text_detection_method, 'color-select')
+    
+    color_select_mask(filename,255,123,0);
+end
 
 I = imread(image);
 I = image_shrink(I);
 image = strcat('../inputs/small_', filename);
 imwrite(I, image);
-
-%detect_edges(filename);
 
 mask = strcat('../masks/', filename);
 Im = imread(mask);
