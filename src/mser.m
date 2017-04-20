@@ -1,3 +1,6 @@
+%% Deprecated with New GUI
+
+
 %Text recognition and creating the mask mser
 
 % i = imread('../inputs/face.jpg');

@@ -1,3 +1,6 @@
+%% Deprecated with New GUI
+
+
 %% Load image and mask
 image = '../inputs/swan.jpg';
 mask  = '../masks/swan.jpg';

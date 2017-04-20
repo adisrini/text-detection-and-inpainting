@@ -1,3 +1,5 @@
+%% Deprecated with New GUI
+
 %edges
 
 I = rgb2gray(imread('../inputs/mountain.jpg'));

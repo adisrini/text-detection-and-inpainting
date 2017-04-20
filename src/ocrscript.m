@@ -1,3 +1,6 @@
+%% Deprecated with New GUI
+
+
 %Text recognition and creating the mask
 
 image = imread('test.jpg');

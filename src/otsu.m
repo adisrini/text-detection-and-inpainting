@@ -1,3 +1,6 @@
+%% Deprecated with New GUI: see otsu_threshold
+
+
 I = imread('../inputs/swan.jpg');
 I = im2double(I(:, :, :));
 HSV = rgb2hsv(I);

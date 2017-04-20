@@ -1,3 +1,6 @@
+%% Deprecated with New GUI
+
+
 %% MATLAB Codes for the Image Inpainting Problem
 %  Copyright (c) 2016, Simone Parisotto and Carola-Bibiane Schoenlieb
 %  All rights reserved.
